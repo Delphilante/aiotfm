@@ -940,7 +940,7 @@ class Client:
 		"""
 		if self.bot_role:
 			logging.debug(keys)
-			self.keys = keys or await get_ip()
+			self.keys = await get_ip()
 		else:
 			if self.auto_restart and api_tfmid is None or api_token is None:
 				warnings.warn("The api token were not provided. The Client won't be able to restart.")
