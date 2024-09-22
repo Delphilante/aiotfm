@@ -77,10 +77,12 @@ class Room:
 
 			def filter_(p):
 				return p == value
+
 		elif identifier == "id":
 
 			def filter_(p):
 				return p.id == int(value)
+
 		elif identifier == "pid":
 			return self.players.get(int(value), default)
 		else:
