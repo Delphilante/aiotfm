@@ -41,7 +41,7 @@ async def get_ip():
 	"""|coro|
 	Fetch the game IP and ports, useful for bots with the official role.
 	"""
-	url = "https://cheese.formice.com/api/tfm/ip"
+	url = "https://athes.dev/api/tfm/ip"
 	data = await request_api(url)
 
 	if not len(data):
