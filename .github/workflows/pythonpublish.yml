@@ -24,7 +24,7 @@ jobs:
       - name: Lint with ruff
         run: ruff check
       - name: Format with ruff
-        run: ruff format --check
+        run: ruff format --diff
   deploy:
     needs: lint
     runs-on: ubuntu-latest
