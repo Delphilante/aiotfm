@@ -34,11 +34,9 @@ class Shop:
 	"""
 
 	def __init__(self, packet: Packet):
-		print(packet)
 		self.cheese: int = packet.read32()
 		self.fraise: int = packet.read32()
 		self.look: str = packet.readUTF()
-		print(self.cheese, self.fraise, self.look)
 
 		self.owned_items: Set[Item] = set(Item.from_packet(packet) for _ in range(packet.read32()))
 		self.items: Set[ShopItem] = set(ShopItem.from_packet(packet) for _ in range(packet.read32()))
@@ -50,6 +48,7 @@ class Shop:
 			OwnedShamanObject.from_packet(packet) for _ in range(packet.read16())
 		)
 		self.shaman_objects: Set[ShamanObject] = set(ShamanObject.from_packet(packet) for _ in range(packet.read16()))
+		print(self.owned_items, self.items, self.full_outfits, self.outfits, self.owned_shaman_objects)
 
 	def to_dict(self) -> dict:
 		"""Export the shop into a serializable dict.
@@ -150,6 +149,7 @@ class Item:
 
 	@classmethod
 	def from_packet(cls, packet: Packet):
+		print(packet)
 		"""Reads an Item from a packet.
 		:param packet: :class:`aiotfm.Packet`
 		:return: :class:`aiotfm.shop.Item`
