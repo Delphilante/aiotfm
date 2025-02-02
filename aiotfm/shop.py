@@ -34,9 +34,11 @@ class Shop:
 	"""
 
 	def __init__(self, packet: Packet):
+		print('hello')
 		self.cheese: int = packet.read32()
 		self.fraise: int = packet.read32()
 		self.look: str = packet.readUTF()
+		print('what')
 
 		self.owned_items: Set[Item] = set(Item.from_packet(packet) for _ in range(packet.read32()))
 		self.items: Set[ShopItem] = set(ShopItem.from_packet(packet) for _ in range(packet.read32()))
