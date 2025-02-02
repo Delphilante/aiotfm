@@ -34,6 +34,7 @@ class Shop:
 	"""
 
 	def __init__(self, packet: Packet):
+		print(packet)
 		self.cheese: int = packet.read32()
 		self.fraise: int = packet.read32()
 		self.look: str = packet.readUTF()
