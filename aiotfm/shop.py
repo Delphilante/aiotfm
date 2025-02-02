@@ -39,16 +39,20 @@ class Shop:
 		self.look: str = packet.readUTF()
 
 		self.owned_items: Set[Item] = set(Item.from_packet(packet) for _ in range(packet.read32()))
+		print(self.owned_items)
 		self.items: Set[ShopItem] = set(ShopItem.from_packet(packet) for _ in range(packet.read32()))
+		print(self.items)
 
 		self.full_outfits: Set[Outfit] = set(Outfit.from_fashion(packet) for _ in range(packet.read8()))
+		print(self.full_outfits)
 		self.outfits: Set[Outfit] = set(Outfit.from_packet(packet, i) for i in range(packet.read16()))
+		print(self.outfits)
 
 		self.owned_shaman_objects: Set[OwnedShamanObject] = set(
 			OwnedShamanObject.from_packet(packet) for _ in range(packet.read16())
 		)
 		self.shaman_objects: Set[ShamanObject] = set(ShamanObject.from_packet(packet) for _ in range(packet.read16()))
-		print(self.owned_items, self.items, self.full_outfits, self.outfits, self.owned_shaman_objects)
+		print('the rest')
 
 	def to_dict(self) -> dict:
 		"""Export the shop into a serializable dict.
