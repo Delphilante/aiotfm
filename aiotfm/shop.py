@@ -149,7 +149,6 @@ class Item:
 
 	@classmethod
 	def from_packet(cls, packet: Packet):
-		print(packet)
 		"""Reads an Item from a packet.
 		:param packet: :class:`aiotfm.Packet`
 		:return: :class:`aiotfm.shop.Item`
